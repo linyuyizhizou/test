@@ -14,21 +14,21 @@ repositories {
     mavenCentral()
 }
 
+var micronautVersion="12:13:14";
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-//    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
-//    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.6.8'
-//    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
-//    implementation 'org.springframework.boot:spring-boot-starter-data-redis:2.6.8'
-// https://mvnrepository.com/artifact/redis.clients/jedis
-    implementation group: 'redis.clients', name: 'jedis', version: '4.3.0'
-    // https://mvnrepository.com/artifact/redis.clients/jedis
-    implementation 'redis.clients:jedis:4.3.0'
-
-
-
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compileOnly(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
+    当前正则处理不了这种需要取参数的情况
+    compileOnly("io.micronaut:micronaut-inject-groovy")
+    implementation(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
+    implementation("io.micronaut:micronaut-inject")
+    runtimeOnly("ch.qos.logback:logback-classic:1.2.3")
+    testImplementation enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+    testImplementation("io.micronaut:micronaut-inject-groovy")
+    testImplementation("org.spockframework:spock-core") {
+        exclude group: "org.codehaus.groovy", module: "groovy-all"
+    }
+    testImplementation("io.micronaut.test:micronaut-test-spock")、
+    project(:mypojrct)
 }
 
 tasks.named('test') {
