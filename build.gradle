@@ -17,7 +17,6 @@ repositories {
 var micronautVersion="12:13:14";
 dependencies {
     compileOnly(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
-    当前正则处理不了这种需要取参数的情况
     compileOnly("io.micronaut:micronaut-inject-groovy")
     implementation(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
     implementation("io.micronaut:micronaut-inject")
